@@ -1,17 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kumaran Traders · Partners & Tie‑ups</title>
-  <meta name="description" content="Kumaran Traders — trusted distributors, direct dealers and wholesale partners." />
-  <!-- Font Awesome for clock icon (already used) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Ionicons for new navigation -->
+  <title>Kumaran Traders - Partners and Tie-ups</title>
+  <meta name="description" content="Kumaran Traders - trusted distributors, direct dealers and wholesale partners." />
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <style>
-    /* ----- RESET & VARIABLES ----- */
     * {
       margin: 0;
       padding: 0;
@@ -21,94 +17,76 @@
     :root {
       --accent: #0b5b8a;
       --accent-dark: #074a66;
+      --text: #102231;
       --muted: #4a5568;
       --card-bg: #ffffff;
-      --bg-light: #f5f7fb;
-      --white: #ffffff;
-      --light-grey: #edf0f1;
-      --violet: #655be1;
-      --dark-violet: #5146e1;
-      --black: #21232a;
+      --bg-light: #f3f7fb;
+      --line: #e2e8f0;
       --radius: 16px;
       --radius-sm: 10px;
-      --shadow-sm: 0 8px 20px rgba(8, 20, 30, 0.05);
-      --shadow-hover: 0 18px 30px rgba(8, 20, 30, 0.12);
-      --transition: all 0.25s ease;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      --shadow-sm: 0 10px 24px rgba(8, 20, 30, 0.06);
+      --shadow-hover: 0 18px 34px rgba(8, 20, 30, 0.14);
+      --transition: all 0.28s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       scroll-behavior: smooth;
     }
 
     body {
-      background: var(--bg-light);
-      color: #102231;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(11, 91, 138, 0.13), transparent 42%),
+        radial-gradient(circle at 95% 8%, rgba(8, 95, 65, 0.08), transparent 36%),
+        var(--bg-light);
+      color: var(--text);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ----- ANIMATIONS ----- */
     @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(18px); }
-      100% { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    @keyframes slideIn {
-      0% { opacity: 0; transform: translateX(-12px); }
-      100% { opacity: 1; transform: translateX(0); }
+    @keyframes pulseSoft {
+      0% { box-shadow: 0 0 0 0 rgba(11, 91, 138, 0.25); }
+      70% { box-shadow: 0 0 0 14px rgba(11, 91, 138, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(11, 91, 138, 0); }
     }
 
-    @keyframes clockPulse {
-      0% { opacity: 0.9; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.02); }
-      100% { opacity: 0.9; transform: scale(1); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
     }
 
-    main > section, .hero, .partners-section, .contact-wrap, #about {
-      animation: fadeUp 0.6s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
-    }
-    .hero { animation-delay: 0.05s; }
-    #about { animation-delay: 0.1s; }
-    .partners-section { animation-delay: 0.15s; }
-    .contact-wrap { animation-delay: 0.2s; }
-
-    .card {
-      transition: var(--transition);
-    }
-    .card:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: var(--shadow-hover);
-    }
-    .card:active {
-      transform: scale(0.99);
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .cta, .btn {
-      transition: var(--transition);
-    }
-    .cta:hover, .btn:hover {
-      background: #074a66;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 20px -8px rgba(7, 74, 102, 0.4);
-    }
-    .btn:active, .cta:active {
-      transform: scale(0.96);
-    }
-
-    /* ----- HEADER (contact removed, clock added) ----- */
     header {
-      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      background: linear-gradient(100deg, var(--accent), var(--accent-dark));
       color: #fff;
       padding: 16px 20px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .topbar {
       display: flex;
-      flex-wrap: wrap;
-      gap: 16px 30px;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
       max-width: 1280px;
       margin: 0 auto;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -124,59 +102,56 @@
       border-radius: 10px;
       background: #fff;
       padding: 6px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: var(--transition);
     }
+
     .brand img:hover {
-      transform: rotate(1.5deg) scale(1.02);
+      transform: scale(1.04) rotate(1deg);
     }
 
     .brand h1 {
       font-size: 1.7rem;
       font-weight: 600;
       letter-spacing: -0.02em;
-      margin: 0 0 4px 0;
+      margin-bottom: 4px;
     }
 
     .contact-small {
       font-size: 0.9rem;
-      opacity: 0.95;
       line-height: 1.4;
+      opacity: 0.95;
     }
 
-    /* ----- CLOCK (left side, animated) ----- */
-    .live-clock {
-      font-size: 1.2rem;
-      background: rgba(255,255,255,0.15);
-      padding: 8px 16px;
-      border-radius: 40px;
-      backdrop-filter: blur(4px);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      border: 1px solid rgba(255,255,255,0.2);
-      animation: clockPulse 2s infinite ease-in-out;
-    }
-
-    .live-clock i {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-
-    .left-group {
+    .quick-actions {
       display: flex;
-      align-items: center;
-      gap: 24px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
-    /* ===== NEW IONIC NAVIGATION BAR (replaces old circular menu) ===== */
+    .quick-actions a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .quick-actions a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
     .icon-nav {
       display: flex;
       justify-content: center;
-      margin: 40px auto 30px;  /* spacing similar to previous nav */
+      margin: 26px auto 30px;
     }
 
     .icon-nav ul {
@@ -184,9 +159,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 10px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-      background: #0b5b8a;  /* dark background for contrast */
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+      background: #0b5b8a;
       padding: 0 10px;
     }
 
@@ -195,20 +170,25 @@
     }
 
     .icon-nav ul li a {
-      position: relative;
       color: #fff;
       text-decoration: none;
-      display: inline-block;
-      padding: 20px 30px;
-      z-index: 1000;
-      backdrop-filter: blur(15px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 26px;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.25s ease;
+    }
+
+    .icon-nav ul li a:hover {
+      transform: translateY(-4px);
     }
 
     .icon-nav ul li a ion-icon {
-      font-size: 1.5em;
-      pointer-events: none;
-      opacity: 0.25;
-      transition: 0.25s;
+      font-size: 1.4rem;
+      opacity: 0.4;
+      transition: opacity 0.25s ease;
     }
 
     .icon-nav ul li.active a ion-icon {
@@ -217,68 +197,35 @@
 
     #marker {
       position: absolute;
-      top: 0;
+      top: 4px;
       left: 0;
-      transition: 0.5s;
+      height: calc(100% - 8px);
+      border-radius: 10px;
+      background: linear-gradient(135deg, #4aa3df, #67c2a4);
+      transition: left 0.32s ease, width 0.32s ease;
       z-index: 1;
+      opacity: 0.95;
     }
 
-    #marker::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 40px;
-      border-radius: 8px;
-      background: #5da6ff;  /* default blue, will be overridden per active if needed */
-      box-shadow: 0 0 15px #5da6ff, 0 0 30px #5da6ff, 0 0 40px #5da6ff, 0 0 60px #5da6ff;
-    }
-
-    /* individual colors (optional, we can keep or unify) */
-    .icon-nav ul li:nth-child(1).active ~ #marker::before {
-      background: #5da6ff;
-      box-shadow: 0 0 15px #5da6ff, 0 0 30px #5da6ff, 0 0 40px #5da6ff, 0 0 60px #5da6ff;
-    }
-    .icon-nav ul li:nth-child(2).active ~ #marker::before {
-      background: #ff0;
-      box-shadow: 0 0 15px #ff0, 0 0 30px #ff0, 0 0 40px #ff0, 0 0 60px #ff0;
-    }
-    .icon-nav ul li:nth-child(3).active ~ #marker::before {
-      background: #df2fff;
-      box-shadow: 0 0 15px #df2fff, 0 0 30px #df2fff, 0 0 40px #df2fff, 0 0 60px #df2fff;
-    }
-    .icon-nav ul li:nth-child(4).active ~ #marker::before {
-      background: #0f0;
-      box-shadow: 0 0 15px #0f0, 0 0 30px #0f0, 0 0 40px #0f0, 0 0 60px #0f0;
-    }
-    .icon-nav ul li:nth-child(5).active ~ #marker::before {
-      background: #ff308f;
-      box-shadow: 0 0 15px #ff308f, 0 0 30px #ff308f, 0 0 40px #ff308f, 0 0 60px #ff308f;
-    }
-
-    /* main container */
     main {
       max-width: 1280px;
-      margin: 32px auto;
+      margin: 10px auto 32px;
       padding: 0 24px;
     }
 
-    /* ----- HERO ----- */
     .hero {
       display: flex;
       flex-wrap: wrap;
       gap: 28px;
       align-items: center;
-      padding: 36px 36px;
-      background: rgba(255,255,255,0.8);
+      padding: 36px;
+      background: rgba(255, 255, 255, 0.86);
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
       border-radius: var(--radius);
       box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(255,255,255,0.6);
-      margin-bottom: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      margin-bottom: 26px;
+      animation: fadeUp 0.5s ease both;
     }
 
     .hero .lead {
@@ -290,116 +237,128 @@
       font-size: 2rem;
       font-weight: 650;
       line-height: 1.2;
-      margin: 0 0 16px 0;
+      margin-bottom: 16px;
       color: #0a2a3a;
     }
 
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       color: #2d3f4e;
-      margin: 0 0 24px 0;
-      max-width: 600px;
+      margin-bottom: 24px;
+      max-width: 640px;
     }
 
     .cta {
       display: inline-block;
-      background: #ffffff;
+      background: #fff;
       color: var(--accent);
       padding: 12px 26px;
       border-radius: 60px;
       text-decoration: none;
       font-weight: 600;
       border: 1px solid var(--accent);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+      transition: var(--transition);
+    }
+
+    .cta:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
     }
 
     .hero img {
-      max-width: 400px;
+      max-width: 410px;
       width: 100%;
-      border-radius: 16px;
+      border-radius: 14px;
       box-shadow: 0 18px 30px -8px rgba(8, 30, 45, 0.2);
       transition: var(--transition);
     }
+
     .hero img:hover {
-      transform: scale(1.01);
-      
-    }
-    .cta:hover{
-        color: white;
+      transform: translateY(-4px) scale(1.02);
     }
 
-    /* ----- ABOUT SECTION (stats secondary) ----- */
+    section {
+      scroll-margin-top: 130px;
+    }
+
     #about {
-      background: white;
+      background: #fff;
       border-radius: var(--radius);
-      padding: 30px 32px 20px 32px;
-      margin: 24px 0 32px;
+      padding: 30px 32px 22px;
+      margin-bottom: 30px;
       box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(0,0,0,0.02);
-      scroll-margin-top: 150px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
-    .about-text h3 {
-      font-size: 1.9rem;
+    .about-text h3,
+    .section-header h3 {
+      font-size: 1.85rem;
       font-weight: 600;
-      margin: 0 0 18px 0;
       color: #0d2e3f;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
     }
 
     .about-text p {
-      font-size: 1.1rem;
+      font-size: 1.06rem;
       color: #2b4050;
-      max-width: 800px;
-      margin-bottom: 16px;
+      max-width: 850px;
+      margin-bottom: 14px;
     }
 
     .about-stats-secondary {
       display: flex;
       flex-wrap: wrap;
-      gap: 24px 32px;
-      margin-top: 24px;
-      padding-top: 16px;
-      border-top: 1px solid #e2e8f0;
+      gap: 16px;
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-stats-secondary div {
+      background: #f7fbff;
+      border: 1px solid #dbe8f3;
+      color: #254457;
+      border-radius: 999px;
+      padding: 7px 14px;
       font-size: 0.95rem;
-      color: var(--muted);
+      transition: var(--transition);
+    }
+
+    .about-stats-secondary div:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(8, 20, 30, 0.08);
     }
 
     .about-stats-secondary span {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--accent-dark);
-      margin-right: 6px;
+      margin-right: 5px;
     }
 
-    /* section headers */
     .section-header {
       display: flex;
       flex-wrap: wrap;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
-      margin: 30px 0 18px 0;
-    }
-
-    .section-header h3 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #0f2a38;
-      letter-spacing: -0.02em;
-      margin: 0;
+      gap: 10px;
+      margin: 30px 0 16px;
     }
 
     .small-muted {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--muted);
-      background: rgba(0,0,0,0.02);
-      padding: 4px 12px;
-      border-radius: 40px;
+      background: rgba(0, 0, 0, 0.03);
+      padding: 5px 12px;
+      border-radius: 999px;
+      line-height: 1.45;
     }
 
-    /* grid (cards) */
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
     }
 
     .card {
@@ -410,17 +369,31 @@
       gap: 18px;
       align-items: center;
       box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(0,0,0,0.02);
+      border: 1px solid rgba(0, 0, 0, 0.03);
       transition: var(--transition);
-      animation: slideIn 0.4s ease backwards;
+      position: relative;
+      overflow: hidden;
     }
 
-    .grid .card:nth-child(1) { animation-delay: 0.1s; }
-    .grid .card:nth-child(2) { animation-delay: 0.15s; }
-    .grid .card:nth-child(3) { animation-delay: 0.2s; }
-    .grid .card:nth-child(4) { animation-delay: 0.25s; }
-    .grid .card:nth-child(5) { animation-delay: 0.3s; }
-    .grid .card:nth-child(6) { animation-delay: 0.35s; }
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto -120% -40% auto;
+      width: 55%;
+      height: 180%;
+      background: linear-gradient(110deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
+      transform: rotate(18deg);
+      transition: right 0.5s ease;
+    }
+
+    .card:hover::after {
+      right: 160%;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-hover);
+    }
 
     .card img {
       width: 90px;
@@ -429,32 +402,32 @@
       border-radius: 10px;
       background: #f9fafc;
       padding: 6px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
-      transition: var(--transition);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+      transition: transform 0.25s ease;
     }
+
     .card:hover img {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
 
     .card .meta strong {
       display: block;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 600;
-      margin-bottom: 6px;
-      color: #102231;
+      margin-bottom: 5px;
+      color: var(--text);
     }
 
     .card .meta small {
       color: var(--muted);
       display: block;
-      font-size: 0.9rem;
-      line-height: 1.4;
+      font-size: 0.92rem;
+      line-height: 1.42;
     }
 
-    /* ----- CONTACT SECTION (aligned) ----- */
     .contact-wrap {
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: 1fr 1fr;
       gap: 24px;
       margin-top: 20px;
     }
@@ -463,83 +436,315 @@
       flex-direction: column;
       align-items: stretch;
       padding: 28px 26px;
-      background: white;
+      background: #fff;
+      border: 1px solid #dbe7f2;
     }
 
     .card.contact-card h4 {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 600;
-      margin: 0 0 12px 0;
+      margin-bottom: 8px;
       color: #0d3445;
+    }
+
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid #cce0ef;
+      background: linear-gradient(120deg, #f5fbff, #edf7ff);
+      color: #1c4f6c;
+      font-size: 0.82rem;
+      font-weight: 600;
+      animation: trustFloat 2.8s ease-in-out infinite;
+    }
+
+    .trust-badge:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .trust-badge:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    .trust-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1faa59;
+      box-shadow: 0 0 0 0 rgba(31, 170, 89, 0.45);
+      animation: trustPulse 1.8s infinite;
+    }
+
+    @keyframes trustPulse {
+      70% { box-shadow: 0 0 0 8px rgba(31, 170, 89, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(31, 170, 89, 0); }
+    }
+
+    @keyframes trustFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
     }
 
     .contact-details {
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 8px 16px;
-      align-items: baseline;
-      margin: 8px 0 12px;
+      gap: 10px;
+      margin: 4px 0 12px;
     }
 
-    .contact-details .label {
-      font-weight: 600;
-      color: #1e3a4a;
-      min-width: 70px;
+    .detail-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #d8e6f2;
+      background: #f9fcff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      transition: var(--transition);
     }
 
-    .contact-details .value {
-      color: #102231;
+    .detail-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(8, 20, 30, 0.08);
+      border-color: #bfd8ea;
+    }
+
+    .detail-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(145deg, #0b5b8a, #1671a7);
+      box-shadow: 0 8px 16px rgba(11, 91, 138, 0.25);
+    }
+
+    .detail-icon ion-icon {
+      font-size: 1.08rem;
+    }
+
+    .detail-content {
+      display: grid;
+      gap: 2px;
+    }
+
+    .detail-item .label {
+      display: inline-block;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #294b61;
+    }
+
+    .detail-item .value {
+      color: #12384d;
       word-break: break-word;
+      font-size: 0.93rem;
+      line-height: 1.4;
     }
 
-    .contact-details a {
+    .contact-details a,
+    .map-link {
       color: var(--accent);
       text-decoration: none;
     }
-    .contact-details a:hover {
+
+    .contact-details a:hover,
+    .map-link:hover {
       text-decoration: underline;
     }
 
     .card.contact-card hr {
-      margin: 20px 0 16px;
+      margin: 18px 0 14px;
       border: none;
       height: 1px;
-      background: linear-gradient(to right, #e2e8f0, transparent);
+      background: linear-gradient(to right, #dbe5ef, transparent);
     }
 
-    form label {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin: 16px 0 4px 4px;
-      color: #1e3a4a;
+    .dynamic-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 2px;
     }
 
-    input, textarea, select {
+    .enquiry-top {
+      display: grid;
+      gap: 10px;
+      margin: 6px 0 4px;
+    }
+
+    .enquiry-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .enquiry-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      border: 1px solid #cde0ee;
+      background: #f4faff;
+      color: #1b4d68;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 10px;
+      animation: trustFloat 2.8s ease-in-out infinite;
+    }
+
+    .enquiry-pill:nth-child(2) {
+      animation-delay: 0.35s;
+    }
+
+    .enquiry-pill:nth-child(3) {
+      animation-delay: 0.7s;
+    }
+
+    .enquiry-pill ion-icon {
+      font-size: 0.95rem;
+      color: #0b6da5;
+    }
+
+    .enquiry-progress {
+      border: 1px solid #d4e4f1;
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #f9fcff;
+      display: grid;
+      gap: 8px;
+    }
+
+    .enquiry-progress-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.83rem;
+      color: #2a536b;
+      font-weight: 600;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: #dfeaf3;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #0b5b8a, #23a36f);
+      transition: width 0.28s ease;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .field {
+      position: relative;
+    }
+
+    .field.with-icon input,
+    .field.with-icon select {
+      padding-left: 42px;
+    }
+
+    .field.with-icon textarea {
+      padding-left: 42px;
+      min-height: 110px;
+    }
+
+    .field-icon {
+      position: absolute;
+      left: 13px;
+      bottom: 13px;
+      color: #507289;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .field.with-icon textarea + .field-icon {
+      bottom: auto;
+      top: 40px;
+    }
+
+    .field:focus-within .field-icon {
+      color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
       width: 100%;
       padding: 12px 14px;
       border-radius: 12px;
-      border: 1px solid #dde3ea;
-      font-size: 1rem;
+      border: 1px solid #cfe0ee;
+      font-size: 0.98rem;
       font-family: inherit;
-      background: white;
+      background: #fff;
       transition: var(--transition);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
     }
-    input:focus, textarea:focus, select:focus {
+
+    .field label {
+      display: block;
+      position: static;
+      margin: 0 0 6px 2px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #2d5368;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
       outline: none;
       border-color: var(--accent);
       box-shadow: 0 0 0 3px rgba(11, 91, 138, 0.15);
-      transform: scale(1.01);
     }
 
-    textarea {
+    .field textarea {
       min-height: 100px;
       resize: vertical;
+      max-height: 220px;
+    }
+
+    .msg-meta {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 5px;
+      color: #607585;
+      font-size: 0.78rem;
+    }
+
+    .form-footer {
+      margin-top: 6px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .btn {
       background: var(--accent);
-      color: white;
+      color: #fff;
       padding: 14px 24px;
       border-radius: 40px;
       font-weight: 600;
@@ -547,74 +752,203 @@
       border: none;
       cursor: pointer;
       box-shadow: 0 8px 18px -6px rgba(11, 91, 138, 0.4);
+      transition: var(--transition);
     }
 
-    /* footer */
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    #formStatus {
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #edf6fd;
+      color: #145378;
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .map-card {
+      display: grid;
+      gap: 12px;
+      background: linear-gradient(140deg, #ffffff, #f2f8fc);
+    }
+
+    .map-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--accent);
+      animation: pulseSoft 2.2s infinite;
+    }
+
+    .map-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .map-btn {
+      border: 1px solid #c8d9e8;
+      border-radius: 999px;
+      padding: 8px 14px;
+      text-decoration: none;
+      color: #0f3f5b;
+      background: #fff;
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+
+    .map-btn:hover {
+      background: #e8f3fb;
+      transform: translateY(-2px);
+    }
+
+    .map-embed {
+      margin-top: 8px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #d7e4ef;
+      box-shadow: 0 12px 24px rgba(8, 20, 30, 0.1);
+      background: #fff;
+    }
+
+    .map-embed iframe {
+      width: 100%;
+      height: 320px;
+      border: 0;
+      display: block;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 24px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #25d366, #169c4d);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 14px 26px rgba(22, 156, 77, 0.35);
+      z-index: 1200;
+      animation: whatsappPulse 2s infinite;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+
+    .whatsapp-float ion-icon {
+      font-size: 1.8rem;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.08);
+      box-shadow: 0 18px 28px rgba(22, 156, 77, 0.45);
+      filter: brightness(1.05);
+    }
+
+    @keyframes whatsappPulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+      }
+      70% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
     footer {
       max-width: 1280px;
-      margin: 48px auto 24px;
+      margin: 44px auto 24px;
       padding: 20px 24px;
       color: var(--muted);
       font-size: 0.9rem;
-      border-top: 1px solid rgba(0,0,0,0.05);
-      text-align: left;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
       line-height: 1.6;
     }
 
-    /* scroll margin for other sections */
-    #partners, #contact {
-      scroll-margin-top: 150px;
-    }
-
-    /* responsive */
     @media (max-width: 1000px) {
       .grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-item {
+        grid-template-columns: 42px 1fr;
       }
     }
 
     @media (max-width: 720px) {
       .hero {
-        padding: 28px 20px;
+        padding: 26px 20px;
       }
+
       .hero h2 {
-        font-size: 1.8rem;
+        font-size: 1.76rem;
       }
+
       .brand h1 {
-        font-size: 1.3rem;
+        font-size: 1.34rem;
       }
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .left-group {
-        width: 100%;
-        justify-content: space-between;
-      }
+
       .icon-nav ul li a {
-        padding: 15px 20px; /* smaller padding on mobile */
+        padding: 12px 16px;
       }
-      #about, #partners, #contact {
-        scroll-margin-top: 120px;
+
+      .quick-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .quick-actions a {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 12px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-item {
+        grid-template-columns: 36px 1fr;
+        gap: 4px;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 620px) {
       .grid {
         grid-template-columns: 1fr;
       }
-      .contact-wrap {
+
+      main {
+        padding: 0 14px;
+      }
+
+      .card img {
+        width: 78px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .quick-actions {
         grid-template-columns: 1fr;
-      }
-      .section-header {
-        flex-direction: column;
-        gap: 8px;
-      }
-      .icon-nav ul li a {
-        padding: 12px 15px;
-      }
-      #about, #partners, #contact {
-        scroll-margin-top: 100px;
       }
     }
   </style>
@@ -622,78 +956,48 @@
 <body>
   <header>
     <div class="topbar">
-      <div class="left-group">
-        <div class="brand">
-          <img src="logo.jpg" alt="Kumaran Traders logo" />
-          <div>
-            <h1>Kumaran Traders</h1>
-            <div class="contact-small">Head Office: 2/4 Athithapuram, Vellamadam, K.K. Dist - 629305</div>
-            <div class="contact-small">Branch Office: Big Nantham, Chengalpattu - 603002</div>
-          </div>
-        </div>
-
-        <!-- Live clock with year (left side, animated) -->
-        <div class="live-clock" id="liveClock">
-          <i class="far fa-clock"></i>
-          <span id="timeDisplay"></span>
+      <div class="brand">
+        <img src="logo.jpg" alt="Kumaran Traders logo" />
+        <div>
+          <h1>Kumaran Traders</h1>
+          <div class="contact-small">Head Office: 2/4 Athithapuram, Vellamadam, K.K. Dist - 629305</div>
+          <div class="contact-small">Branch Office: Big Nantham, Chengalpattu - 603002</div>
         </div>
       </div>
-      <!-- right side contact info REMOVED -->
+      <div class="quick-actions">
+        <a href="tel:+917550053999"><ion-icon name="call-outline"></ion-icon> Call Us</a>
+        <a href="https://www.google.com/maps/place/KUMARAN+TRADERS+ELECTRICAL+%26+PAINTS/@8.2124276,77.4652799,843m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3b04f7ef6f708325:0xc39373ca2c2b5cb8!8m2!3d8.2124276!4d77.4652799!16s%2Fg%2F11vf21dqrd!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><ion-icon name="location-outline"></ion-icon> Map Location</a>
+      </div>
     </div>
   </header>
 
-  <!-- NEW IONIC NAVIGATION (replaces old circular menu) -->
-  <div class="icon-nav">
+  <nav class="icon-nav" aria-label="Primary navigation">
     <ul>
-     <li class="active">
-  <a href="#home">
-    <ion-icon name="home-outline"></ion-icon>
-  </a>
-</li>
-
-<li>
-  <a href="#about">
-    <ion-icon name="business-outline"></ion-icon>
-  </a>
-</li>
-
-<li>
-  <a href="#partners">
-    <ion-icon name="cube-outline"></ion-icon>
-  </a>
-</li>
-
-<li>
-  <a href="tel:+917550053999">
-    <ion-icon name="call-outline"></ion-icon>
-  </a>
-</li>
-
-<li>
-  <a href="#c-card">
-    <ion-icon name="people-outline"></ion-icon>
-  </a>
-</li>
+      <li class="active"><a href="#home" aria-label="Home"><ion-icon name="home-outline"></ion-icon></a></li>
+      <li><a href="#about" aria-label="About"><ion-icon name="business-outline"></ion-icon></a></li>
+      <li><a href="#partners" aria-label="Partners"><ion-icon name="cube-outline"></ion-icon></a></li>
+      <li><a href="#location" aria-label="Location"><ion-icon name="location-outline"></ion-icon></a></li>
+      <li><a href="#contact" aria-label="Contact"><ion-icon name="people-outline"></ion-icon></a></li>
       <div id="marker"></div>
     </ul>
-  </div>
+  </nav>
 
-  <main>
-    <section class="hero">
+  <main id="home">
+    <section class="hero reveal">
       <div class="lead">
         <h2>Trusted partners. Reliable distribution. Decades of service.</h2>
         <p>We at <strong>Kumaran Traders</strong> proudly partner with leading brands across lighting, wiring, paints and electricals. Explore our distributors, direct dealers and wholesale partners below.</p>
-        <a class="cta" href="#wholesale-partners">View Our wholesale-partners</a>
+        <a class="cta" href="#wholesale-partners">View Our Wholesale Partners</a>
       </div>
-      <div style="min-width:220px;display:flex;justify-content:center;align-items:center">
-        <img src="logo.jpg" alt="Kumaran Traders banner" style="max-width:420px;border-radius:10px;box-shadow:0 8px 22px rgba(8,20,30,.06)" />
+      <div style="min-width:220px;display:flex;justify-content:center;align-items:center;">
+        <img src="logo.jpg" alt="Kumaran Traders banner" />
       </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="reveal">
       <div class="about-text">
         <h3>About Kumaran Traders</h3>
-        <p>With over 6 years of excellence in electrical, paint, and hardware distribution, we serve retailers and contractors across Tamil Nadu. Our two offices — in K.K. Dist and Chengalpattu — ensure timely supply and genuine products.</p>
+        <p>With over 6 years of excellence in electrical, paint, and hardware distribution, we serve retailers and contractors across Tamil Nadu. Our two offices in K.K. Dist and Chengalpattu help us supply genuine products on time.</p>
       </div>
       <div class="about-stats-secondary">
         <div><span>6+</span> years of excellence</div>
@@ -702,113 +1006,215 @@
       </div>
     </section>
 
-    <section id="partners" class="partners-section">
+    <section id="partners" class="partners-section reveal">
       <div class="section-header">
         <h3>Our Distributors</h3>
         <div class="small-muted">Official distribution partners</div>
       </div>
       <div class="grid">
-        <article class="card">
+        <article class="card reveal">
           <img src="surya-logo-png_seeklogo-304354.png" alt="Surya logo" />
-          <div class="meta"><strong>Surya</strong><small>Lighting & home electricals — distribution partner.</small></div>
+          <div class="meta"><strong>Surya</strong><small>Lighting and home electricals - distribution partner.</small></div>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <img src="OIP (7).webp" alt="LEDVANCE logo" />
-          <div class="meta"><strong>LEDVANCE</strong><small>LED lighting solutions — authorized distributor.</small></div>
+          <div class="meta"><strong>LEDVANCE</strong><small>LED lighting solutions - authorized distributor.</small></div>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <img src="gp_batteries_logo_Rityta-1.png" alt="GP Batteries logo" />
-          <div class="meta"><strong>GP Batteries</strong><small>Battery & power products — distribution partner.</small></div>
+          <div class="meta"><strong>GP Batteries</strong><small>Battery and power products - distribution partner.</small></div>
         </article>
       </div>
 
-      <div style="height:28px"></div>
+      <div style="height:28px;"></div>
       <div class="section-header">
         <h3>Direct Dealers</h3>
         <div class="small-muted">Manufacturers we represent directly</div>
       </div>
       <div class="grid">
-        <article class="card">
+        <article class="card reveal">
           <img src="OIP (8).webp" alt="Finolex logo" />
-          <div class="meta"><strong>Finolex Cables Limited</strong><small>Official direct dealer for cables & wires.</small></div>
+          <div class="meta"><strong>Finolex Cables Limited</strong><small>Official direct dealer for cables and wires.</small></div>
         </article>
-        <article class="card">
-          <img src="effae74f-45bf-4422-b2b1-3c7efc426036_small.jpg" alt="Nippon Paint logo" style="border-radius: 10px;" />
+        <article class="card reveal">
+          <img src="effae74f-45bf-4422-b2b1-3c7efc426036_small.jpg" alt="Nippon Paint logo" />
           <div class="meta"><strong>Nippon Paint</strong><small>Authorized paint dealer.</small></div>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <img src="OIP (9).webp" alt="Great White Electricals" />
-          <div class="meta"><strong>Great White Electricals</strong><small>Electrical equipment & fixtures — direct dealer.</small></div>
+          <div class="meta"><strong>Great White Electricals</strong><small>Electrical equipment and fixtures - direct dealer.</small></div>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <img src="ap2.png" alt="Asian Paints" />
-          <div class="meta"><strong>Asian Paints</strong><small>Leading paint manufacturer — direct dealer.</small></div>
+          <div class="meta"><strong>Asian Paints</strong><small>Leading paint manufacturer - direct dealer.</small></div>
         </article>
       </div>
 
-      <div style="height:28px"></div>
+      <div style="height:28px;"></div>
       <div class="section-header" id="wholesale-partners">
         <h3>Wholesale Partners</h3>
         <div class="small-muted">Wholesale supply for major brands</div>
       </div>
       <div class="grid">
-        <article class="card">
+        <article class="card reveal">
           <img src="OIP (10).webp" alt="RR KABEL logo" />
-          <div class="meta"><strong>RR KABEL</strong><small>Wires & cables — wholesale supply.</small></div>
+          <div class="meta"><strong>RR KABEL</strong><small>Wires and cables - wholesale supply.</small></div>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <img src="OIP (11).webp" alt="Anchor by Panasonic logo" />
           <div class="meta"><strong>Anchor by Panasonic</strong><small>Switches, sockets and electrical accessories.</small></div>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <img src="OIP (12).webp" alt="Legrand logo" />
-          <div class="meta"><strong>Legrand</strong><small>Electrical solutions & systems.</small></div>
+          <div class="meta"><strong>Legrand</strong><small>Electrical solutions and systems.</small></div>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <img src="OIP (13).webp" alt="Hi-Fi Electric logo" />
-          <div class="meta"><strong>Hi‑Fi Electric</strong><small>Electrical components & wholesale.</small></div>
+          <div class="meta"><strong>Hi-Fi Electric</strong><small>Electrical components and wholesale.</small></div>
         </article>
       </div>
     </section>
 
-    <section id="contact" style="margin-top:26px">
+    <section id="location" class="reveal" style="margin-top:28px;">
+      <div class="section-header">
+        <h3>Our Location</h3>
+        <div class="small-muted">Easy navigation to our office</div>
+      </div>
+      <article class="card contact-card map-card">
+        <div class="map-badge"><ion-icon name="navigate-outline"></ion-icon></div>
+        <h4>Visit Kumaran Traders</h4>
+        <p class="small-muted">Use Google Maps for turn-by-turn directions from your current location.</p>
+        <a class="map-link" href="https://www.google.com/maps/place/KUMARAN+TRADERS+ELECTRICAL+%26+PAINTS/@8.2124276,77.4652799,843m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3b04f7ef6f708325:0xc39373ca2c2b5cb8!8m2!3d8.2124276!4d77.4652799!16s%2Fg%2F11vf21dqrd!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Open KUMARAN TRADERS ELECTRICAL &amp; PAINTS on Google Maps</a>
+        <div class="map-actions">
+          <a class="map-btn" href="https://www.google.com/maps/place/KUMARAN+TRADERS+ELECTRICAL+%26+PAINTS/@8.2124276,77.4652799,843m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3b04f7ef6f708325:0xc39373ca2c2b5cb8!8m2!3d8.2124276!4d77.4652799!16s%2Fg%2F11vf21dqrd!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Open in Maps</a>
+          <a class="map-btn" href="tel:+917550053999">Call Before Visit</a>
+        </div>
+        <div class="map-embed">
+          <iframe
+            title="Kumaran Traders live map"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=8.2124276,77.4652799(KUMARAN%20TRADERS%20ELECTRICAL%20%26%20PAINTS)&z=17&output=embed">
+          </iframe>
+        </div>
+      </article>
+    </section>
+
+    <section id="contact" class="reveal" style="margin-top:28px;">
       <div class="section-header">
         <h3>Contact Us</h3>
         <div class="small-muted">Get in touch for partnership enquiries or wholesale orders</div>
       </div>
       <div class="contact-wrap">
-        <div class="card contact-card">
-          <h4>Head Office</h4>
-          <p class="small-muted">2/4 Athithapuram, Vellamadam, K.K. Dist - 629305</p>
-          <p class="small-muted">Branch: Big Nantham, Chengalpattu - 603002</p>
-          <div class="contact-details">
-            <span class="label">Mobile:</span>
-            <span class="value">75500 53999 / 888 / 666</span>
-            <span class="label">Email:</span>
-            <span class="value"><a href="mailto:kumarantraders713@gmail.com">kumarantraders713@gmail.com</a></span>
+        <div class="card contact-card reveal">
+          <h4>Contact Details</h4>
+          <p class="small-muted">Reach us directly for orders, dealership, and partner enquiries.</p>
+          <div class="trust-strip">
+            <span class="trust-badge"><span class="trust-dot"></span> Genuine Products</span>
+            <span class="trust-badge"><span class="trust-dot"></span> Fast Response</span>
+            <span class="trust-badge"><span class="trust-dot"></span> Trusted Supply</span>
           </div>
-          <hr />
-          <h4>Quick Enquiry</h4>
-          <p class="small-muted">Tell us which partner or product you're interested in and we'll respond shortly.</p>
+          <div class="contact-details">
+            <div class="detail-item">
+              <div class="detail-icon"><ion-icon name="business-outline"></ion-icon></div>
+              <div class="detail-content">
+                <span class="label">Head Office</span>
+                <span class="value">2/4 Athithapuram, Vellamadam, K.K. Dist - 629305</span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-icon"><ion-icon name="storefront-outline"></ion-icon></div>
+              <div class="detail-content">
+                <span class="label">Branch</span>
+                <span class="value">Big Nantham, Chengalpattu - 603002</span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-icon"><ion-icon name="call-outline"></ion-icon></div>
+              <div class="detail-content">
+                <span class="label">Mobile</span>
+                <span class="value">75500 53999 / 888 / 666</span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-icon"><ion-icon name="mail-outline"></ion-icon></div>
+              <div class="detail-content">
+                <span class="label">Email</span>
+                <span class="value"><a href="mailto:kumarantraders713@gmail.com">kumarantraders713@gmail.com</a></span>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-icon"><ion-icon name="location-outline"></ion-icon></div>
+              <div class="detail-content">
+                <span class="label">Map</span>
+                <span class="value"><a href="https://www.google.com/maps/place/KUMARAN+TRADERS+ELECTRICAL+%26+PAINTS/@8.2124276,77.4652799,843m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3b04f7ef6f708325:0xc39373ca2c2b5cb8!8m2!3d8.2124276!4d77.4652799!16s%2Fg%2F11vf21dqrd!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Open Location</a></span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card contact-card" id="c-card">
-          <form id="contactForm">
-            <label for="name">Your name</label>
-            <input id="name" name="name" required placeholder="e.g. R. Ragu" />
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" placeholder="10-digit mobile" />
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@gmail.com" />
-            <label for="interest">Interested in</label>
-            <select id="interest" name="interest">
-              <option value="">-- choose --</option>
-              <option>Distributor (Surya / LEDVANCE / GP Batteries)</option>
-              <option>Direct Dealer (Finolex / Nippon / Great White)</option>
-              <option>Wholesale (RR KABEL / Anchor / Legrand / Hi‑Fi)</option>
-            </select>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us details, qty, timeline..." ></textarea>
-            <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+
+        <div class="card contact-card reveal" id="c-card">
+          <h4>Quick Enquiry</h4>
+          <p class="small-muted">Tell us which partner or product you are interested in and we will contact you shortly.</p>
+          <div class="enquiry-top">
+            <div class="enquiry-trust">
+              <span class="enquiry-pill"><ion-icon name="shield-checkmark-outline"></ion-icon> Secure Contact</span>
+              <span class="enquiry-pill"><ion-icon name="flash-outline"></ion-icon> Fast Reply</span>
+              <span class="enquiry-pill"><ion-icon name="chatbubble-ellipses-outline"></ion-icon> Direct WhatsApp</span>
+            </div>
+            <div class="enquiry-progress">
+              <div class="enquiry-progress-head">
+                <span>Form Completion</span>
+                <span id="formProgressText">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="formProgressBar"></div>
+              </div>
+            </div>
+          </div>
+          <form id="contactForm" class="dynamic-form">
+            <div class="form-row">
+              <div class="field with-icon">
+                <label for="name">Your name</label>
+                <input id="name" name="name" required placeholder="e.g. R. Ragu" />
+                <ion-icon class="field-icon" name="person-outline"></ion-icon>
+              </div>
+
+              <div class="field with-icon">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" placeholder="10-digit mobile" />
+                <ion-icon class="field-icon" name="call-outline"></ion-icon>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field with-icon">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@gmail.com" />
+                <ion-icon class="field-icon" name="mail-outline"></ion-icon>
+              </div>
+
+              <div class="field with-icon">
+                <label for="interest">Interested in</label>
+                <select id="interest" name="interest">
+                  <option value="">-- choose --</option>
+                  <option>Distributor (Surya / LEDVANCE / GP Batteries)</option>
+                  <option>Direct Dealer (Finolex / Nippon / Great White)</option>
+                  <option>Wholesale (RR KABEL / Anchor / Legrand / Hi-Fi)</option>
+                </select>
+                <ion-icon class="field-icon" name="briefcase-outline"></ion-icon>
+              </div>
+            </div>
+
+            <div class="field with-icon">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us details, qty, timeline..." maxlength="300"></textarea>
+              <ion-icon class="field-icon" name="create-outline"></ion-icon>
+              <div class="msg-meta"><span id="msgCount">0</span>/300</div>
+            </div>
+
+            <div class="form-footer">
               <button class="btn" type="submit">Send Enquiry</button>
               <div id="formStatus" class="small-muted" aria-live="polite"></div>
             </div>
@@ -819,149 +1225,182 @@
   </main>
 
   <footer>
-    © <strong>Kumaran Traders</strong> — Head Office: 2/4 Athithapuram, Vellamadam, K.K. Dist - 629305 · Branch: Big Nantham, Chengalpattu - 603002 · Mobile: 75500 53999 · Email: kumarantraders713@gmail.com
+    <strong>Kumaran Traders</strong> - Head Office: 2/4 Athithapuram, Vellamadam, K.K. Dist - 629305 | Branch: Big Nantham, Chengalpattu - 603002 | Mobile: 75500 53999 | Email: kumarantraders713@gmail.com
   </footer>
 
-  <script>
-    (function() {
-      // ---------- live clock ----------
-      function updateClock() {
-        const now = new Date();
-        const timeStr = now.toLocaleTimeString('en-IN', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        const year = now.getFullYear();
-        document.getElementById('timeDisplay').innerText = `${timeStr} | ${year}`;
-      }
-      updateClock();
-      setInterval(updateClock, 1000);
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/919043394026?text=Hello%20Kumaran%20Traders%2C%20I%20need%20more%20details."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </a>
 
-      // ---------- form handling ----------
+  <script>
+    (function () {
+      const marker = document.querySelector('#marker');
+      const navItems = Array.from(document.querySelectorAll('.icon-nav ul li'));
+      const sections = ['home', 'about', 'partners', 'location', 'contact'];
+
+      function moveIndicator(item) {
+        if (!marker || !item) return;
+        marker.style.left = item.offsetLeft + 'px';
+        marker.style.width = item.offsetWidth + 'px';
+      }
+
+      function setActive(item) {
+        navItems.forEach((el) => el.classList.remove('active'));
+        item.classList.add('active');
+        moveIndicator(item);
+      }
+
+      navItems.forEach((item) => {
+        item.addEventListener('mouseenter', function () {
+          setActive(this);
+        });
+
+        item.addEventListener('click', function () {
+          setActive(this);
+        });
+      });
+
+      function updateActiveFromScroll() {
+        const offset = window.scrollY + 220;
+        let activeIndex = 0;
+
+        for (let i = 0; i < sections.length; i++) {
+          const section = document.getElementById(sections[i]);
+          if (section && offset >= section.offsetTop) {
+            activeIndex = i;
+          }
+        }
+
+        if (navItems[activeIndex]) {
+          setActive(navItems[activeIndex]);
+        }
+      }
+
+      const revealItems = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealItems.forEach((el) => observer.observe(el));
+
       const form = document.getElementById('contactForm');
       const status = document.getElementById('formStatus');
-      form.addEventListener('submit', function(e){
+      const messageField = document.getElementById('message');
+      const msgCount = document.getElementById('msgCount');
+      const interestField = document.getElementById('interest');
+      const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+      const progressText = document.getElementById('formProgressText');
+      const progressBar = document.getElementById('formProgressBar');
+      const trackFields = ['name', 'phone', 'email', 'interest', 'message'];
+
+      function updateSelectState() {
+        if (!interestField) return;
+        if (interestField.value) {
+          interestField.classList.add('has-value');
+        } else {
+          interestField.classList.remove('has-value');
+        }
+      }
+
+      function updateMessageCount() {
+        if (!messageField || !msgCount) return;
+        msgCount.textContent = messageField.value.length;
+      }
+
+      function updateFormProgress() {
+        if (!form || !progressText || !progressBar) return;
+        let filled = 0;
+        trackFields.forEach((fieldName) => {
+          const field = form.elements[fieldName];
+          if (field && String(field.value).trim() !== '') {
+            filled += 1;
+          }
+        });
+        const percent = Math.round((filled / trackFields.length) * 100);
+        progressText.textContent = percent + '%';
+        progressBar.style.width = percent + '%';
+      }
+
+      if (interestField) {
+        interestField.addEventListener('change', updateSelectState);
+        updateSelectState();
+      }
+
+      if (messageField) {
+        messageField.addEventListener('input', updateMessageCount);
+        updateMessageCount();
+      }
+
+      trackFields.forEach((fieldName) => {
+        const field = form.elements[fieldName];
+        if (!field) return;
+        field.addEventListener('input', updateFormProgress);
+        field.addEventListener('change', updateFormProgress);
+      });
+      updateFormProgress();
+
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
+
         const name = this.name.value.trim();
         const phone = this.phone.value.trim();
         const email = this.email.value.trim();
         const interest = this.interest.value;
         const message = this.message.value.trim();
-        if(!name && !email && !phone){
-          status.textContent = 'Please provide at least a name and contact (email or phone).';
+
+        if (!name || (!phone && !email)) {
+          status.textContent = 'Please enter your name and phone or email.';
           return;
         }
-        status.textContent = 'Sending...';
-        setTimeout(()=>{
-          console.log('CONTACT SUBMISSION', { name, phone, email, interest, message });
-          status.textContent = 'Thanks! Your enquiry has been recorded. We will contact you soon.';
-          form.reset();
-        }, 700);
+
+        if (submitBtn) submitBtn.textContent = 'Preparing...';
+        status.textContent = 'Opening WhatsApp...';
+
+        const text =
+          'New Enquiry:%0A%0A' +
+          'Name: ' + encodeURIComponent(name) + '%0A' +
+          'Phone: ' + encodeURIComponent(phone) + '%0A' +
+          'Email: ' + encodeURIComponent(email) + '%0A' +
+          'Interested In: ' + encodeURIComponent(interest) + '%0A' +
+          'Message: ' + encodeURIComponent(message);
+
+        const whatsappNumber = '919043394026';
+        const url = 'https://wa.me/' + whatsappNumber + '?text=' + text;
+
+        window.open(url, '_blank', 'noopener');
+        status.textContent = 'WhatsApp opened. Please send the message to complete enquiry.';
+        if (submitBtn) submitBtn.textContent = 'Send Enquiry';
+        form.reset();
+        updateSelectState();
+        updateMessageCount();
+        updateFormProgress();
       });
 
-      // ---------- new navigation marker and active state ----------
-      const marker = document.querySelector('#marker');
-      const navList = document.querySelectorAll('.icon-nav ul li');
-
-      function moveIndicator(el) {
-        marker.style.left = el.offsetLeft + 'px';
-        marker.style.width = el.offsetWidth + 'px';
-      }
-
-      function setActiveClass(activeItem) {
-        navList.forEach(item => item.classList.remove('active'));
-        activeItem.classList.add('active');
-        moveIndicator(activeItem);
-      }
-
-      // Attach mouseover events
-      navList.forEach(item => {
-        item.addEventListener('mouseover', function() {
-          setActiveClass(this);
-        });
+      window.addEventListener('load', function () {
+        if (navItems[0]) setActive(navItems[0]);
+        updateActiveFromScroll();
       });
 
-      // Set initial active (first li, home)
-      if (navList.length) {
-        setActiveClass(navList[0]);
-      }
-
-      // Optional: update marker on window resize (to keep correct position on active)
-      window.addEventListener('resize', function() {
+      window.addEventListener('resize', function () {
         const active = document.querySelector('.icon-nav ul li.active');
         if (active) moveIndicator(active);
       });
-
-      // Ensure marker updates after scrolling (in case of layout shift)
-      window.addEventListener('scroll', function() {
-        const active = document.querySelector('.icon-nav ul li.active');
-        if (active) moveIndicator(active);
-      });
-
-      // Close any menu (not needed, but we keep the click-to-navigate behavior)
-      // The links already work because of href, but we want the active class to reflect the section after click.
-      // We can update active on click based on href.
-      navList.forEach(link => {
-        link.addEventListener('click', function(e) {
-          // the href will handle navigation, but we also want to set active immediately
-          setActiveClass(this);
-          // no need to prevent default, we want the scroll
-        });
-      });
-
-      // Update active based on scroll position (optional enhancement)
-      function updateActiveFromScroll() {
-        const sections = [
-          { id: 'home', selector: 'body' }, // home is top of page
-          { id: 'about', selector: '#about' },
-          { id: 'partners', selector: '#partners' },
-          { id: 'contact', selector: '#contact' }
-        ];
-        const scrollPos = window.scrollY + 200; // offset
-        let activeIndex = 0; // default home
-
-        if (document.querySelector('#contact') && scrollPos >= document.querySelector('#contact').offsetTop - 200) {
-          activeIndex = 3;
-        } else if (document.querySelector('#partners') && scrollPos >= document.querySelector('#partners').offsetTop - 200) {
-          activeIndex = 2;
-        } else if (document.querySelector('#about') && scrollPos >= document.querySelector('#about').offsetTop - 200) {
-          activeIndex = 1;
-        }
-
-        // map index to nav item (skip the extra settings icon at index 4)
-        if (navList[activeIndex]) {
-          setActiveClass(navList[activeIndex]);
-        }
-      }
 
       window.addEventListener('scroll', updateActiveFromScroll);
-      window.addEventListener('load', updateActiveFromScroll);
-
     })();
-  </script> 
-
-  <script>
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const email = document.getElementById("email").value;
-    const interest = document.getElementById("interest").value;
-    const message = document.getElementById("message").value;
-
-    const whatsappNumber = "919043394026"; 
-    // Format: countrycode + number (no +, no spaces)
-
-    const text =
-        "New Enquiry:%0A%0A" +
-        "Name: " + name + "%0A" +
-        "Phone: " + phone + "%0A" +
-        "Email: " + email + "%0A" +
-        "Interested In: " + interest + "%0A" +
-        "Message: " + message;
-
-    const url = "https://wa.me/" + whatsappNumber + "?text=" + text;
-
-    window.open(url, "_blank");
-});
-</script>
+  </script>
 </body>
 </html>
